@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muhammad Bilal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Geist:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --sidebar-w: 260px;
+      --ink:       #111110;
+      --ink-2:     #3c3c3a;
+      --ink-3:     #6e6e6b;
+      --ink-4:     #9f9f9b;
+      --rule:      #e4e4e0;
+      --bg:        #ffffff;
+      --bg-soft:   #f7f7f5;
+      --accent:    #2c5282;   /* single restrained accent — deep navy */
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Geist', sans-serif;
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: var(--ink-2);
+      background: var(--bg);
+    }
+
+    /* ── LAYOUT ──────────────────────────────────────── */
+    .layout {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ── SIDEBAR ─────────────────────────────────────── */
+    .sidebar {
+      width: var(--sidebar-w);
+      flex-shrink: 0;
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      border-right: 1px solid var(--rule);
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      padding: 3rem 1.75rem 2.5rem;
+      overflow-y: auto;
+    }
+
+    .avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      margin-bottom: 1.25rem;
+      filter: grayscale(15%);
+    }
+
+    .sidebar-name {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.45rem;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-bottom: 0.3rem;
+    }
+
+    .sidebar-role {
+      font-size: 0.78rem;
+      color: var(--ink-3);
+      font-weight: 400;
+      margin-bottom: 0.15rem;
+      letter-spacing: 0.01em;
+    }
+
+    .sidebar-uni {
+      font-size: 0.78rem;
+      color: var(--ink-3);
+      margin-bottom: 0.1rem;
+    }
+
+    .sidebar-lab {
+      font-size: 0.78rem;
+      margin-bottom: 2rem;
+    }
+
+    .sidebar-lab a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .sidebar-lab a:hover { text-decoration: underline; }
+
+    /* Nav */
+    .sidebar-nav {
+      list-style: none;
+      margin-bottom: auto;
+    }
+
+    .sidebar-nav li + li { margin-top: 0.05rem; }
+
+    .sidebar-nav a {
+      display: block;
+      padding: 0.38rem 0.6rem;
+      border-radius: 5px;
+      color: var(--ink-3);
+      text-decoration: none;
+      font-size: 0.83rem;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .sidebar-nav a:hover { color: var(--ink); background: var(--bg-soft); }
+
+    .sidebar-nav a.active {
+      color: var(--ink);
+      background: var(--bg-soft);
+      font-weight: 500;
+    }
+
+    /* Socials */
+    .sidebar-socials {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .social-row {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.8rem;
+      color: var(--ink-3);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .social-row:hover { color: var(--ink); }
+
+    .social-row svg {
+      width: 13px; height: 13px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+
+    /* ── MAIN ────────────────────────────────────────── */
+    .main {
+      margin-left: var(--sidebar-w);
+      flex: 1;
+      padding: 4rem 5rem 7rem 4rem;
+      max-width: 740px;
+    }
+
+    /* Sections */
+    .section { margin-bottom: 4.5rem; }
+
+    .section-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.55rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* About */
+    .about-text p {
+      margin-bottom: 0.95rem;
+      font-size: 0.94rem;
+      line-height: 1.8;
+      color: var(--ink-2);
+    }
+
+    .about-text p:last-child { margin-bottom: 0; }
+
+    .about-text a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    .about-text a:hover { border-bottom-color: var(--accent); }
+
+    /* Research items */
+    .research-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .research-item {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .research-item:first-child { padding-top: 0; }
+    .research-item:last-child { border-bottom: none; }
+
+    .research-item h3 {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .research-item p {
+      font-size: 0.9rem;
+      color: var(--ink-3);
+      line-height: 1.75;
+    }
+
+    /* Publications */
+    .pub-notice {
+      background: var(--bg-soft);
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      padding: 1.75rem 2rem;
+    }
+
+    .pub-notice p {
+      font-size: 0.9rem;
+      color: var(--ink-3);
+      line-height: 1.75;
+    }
+
+    .pub-notice strong { color: var(--ink-2); }
+
+    /* News */
+    .news-item {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 1.5rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .news-item:last-child { border-bottom: none; }
+
+    .news-date {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--ink-4);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding-top: 2px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .news-body {
+      font-size: 0.9rem;
+      color: var(--ink-2);
+      line-height: 1.65;
+    }
+
+    .news-body strong { color: var(--ink); font-weight: 500; }
+
+    /* Reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 700px) {
+      .sidebar {
+        position: static;
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--rule);
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1rem;
+        padding: 1.5rem;
+      }
+
+      .avatar { width: 60px; height: 60px; margin: 0; }
+      .sidebar-nav, .sidebar-socials, .sidebar-lab { display: none; }
+
+      .main { margin-left: 0; padding: 2rem 1.25rem 4rem; }
+    }
+
+    @media (max-width: 900px) and (min-width: 701px) {
+      .main { padding: 3rem 2.5rem 5rem 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <img src="profile-photo.jpeg" alt="Muhammad Bilal" class="avatar" />
+
+    <h1 class="sidebar-name">Muhammad Bilal</h1>
+    <p class="sidebar-role">Ph.D. Student in Computer Science</p>
+    <p class="sidebar-uni">University of Arizona</p>
+    <p class="sidebar-lab"><a href="https://www.sazzadur.com/students/" target="_blank">SPRLAB</a></p>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="#about" class="active">About</a></li>
+        <!-- <li><a href="#research">Research</a></li> -->
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#news">News</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-socials">
+      <a class="social-row" href="mailto:mbilal@arizona.edu">
+        <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+        mbilal@arizona.edu
+      </a>
+      <a class="social-row" href="https://www.linkedin.com/in/bilalmd01/" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V9h4v1.5A6 6 0 0 1 16 8z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        Linkedin
+      </a>
+      <a class="social-row" href="https://github.com/Bilalmd01" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        Github
+      </a>
+    </div>
+
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- ABOUT -->
+    <section id="about" class="section reveal">
+      <h2 class="section-title">About</h2>
+      <div class="about-text">
+        <p>
+          I am a second-semester Ph.D. student in Computer Science at the
+          <a href="https://www.cs.arizona.edu/" target="_blank">University of Arizona</a>,
+          member of the <a href="https://www.sazzadur.com/students/" target="_blank">SPRLAB</a>.
+          My research sits at the intersection of AI systems, security, and program analysis,
+          with a current focus on identifying and characterizing vulnerabilities in
+          multi-agent AI ecosystems.
+        </p>
+        <p>
+          I completed my undergraduate degree in Computer Science at
+          <a href="https://lums.edu.pk/" target="_blank">LUMS</a> (Lahore University of Management Sciences)
+          in Pakistan, where I developed a strong foundation in systems and security under the mentorship of Dr. Fareed Zaffar.
+        </p>
+        <p>
+          Prior to my current research direction, I worked extensively on software debloating, 
+          with a paper currently under review at the
+          <strong>IEEE/ACM International Conference on Automated Software Engineering (ASE)</strong>.
+        </p>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <!-- <section id="research" class="section reveal">
+      <h2 class="section-title">Research</h2>
+      <div class="research-list">
+
+        <div class="research-item">
+          <h3>Multi-Agent AI Security</h3>
+          <p>
+            Investigating security vulnerabilities in AI agent ecosystems, with a focus on
+            the skill installation and execution lifecycle. I develop static analysis pipelines
+            combining LLM-based extraction, CodeQL taint tracking, and cross-language IPC
+            analysis to surface security flaws at design time.
+          </p>
+        </div>
+
+        <div class="research-item">
+          <h3>Software Debloating</h3>
+          <p>
+            Reducing software attack surfaces through systematic removal of unused code.
+            My work includes a novel mitigation framework and techniques for safe program
+            specialization, with a focus on real-world applicability.
+          </p>
+        </div>
+
+        <div class="research-item">
+          <h3>Static Analysis & Taint Tracking</h3>
+          <p>
+            Developing cross-language taint analysis methodologies for complex, multi-component
+            software systems. A core contribution is treating IPC channels — shared files,
+            environment variables, network endpoints — as first-class taint flow edges.
+          </p>
+        </div>
+
+      </div>
+    </section> -->
+
+    <!-- PUBLICATIONS -->
+    <section id="publications" class="section reveal">
+      <h2 class="section-title">Publications</h2>
+      <div class="pub-notice">
+        <p>
+          Papers are currently in preparation. A manuscript on software debloating is under review
+          at the <strong>IEEE/ACM International Conference on Automated Software Engineering (ASE)</strong>.
+          Work on multi-agent AI security is being written up for submission. Check back for updates.
+        </p>
+      </div>
+    </section>
+
+    <!-- NEWS -->
+    <section id="news" class="section reveal">
+    <h2 class="section-title">News</h2>
+
+    <div class="news-item">
+        <span class="news-date">Spring 2026</span>
+        <span class="news-body">Advancing research on <strong>multi-agent AI security</strong>, analyzing vulnerabilities in agent skill ecosystems. Teaching Assistant for <strong>CSC 460 (Database Systems)</strong>. Submitted paper on software debloating to <strong>ASE 2026</strong>.</span>
+    </div>
+
+    <div class="news-item">
+        <span class="news-date">Fall 2025</span>
+        <span class="news-body">Began Ph.D. studies in Computer Science at the <strong>University of Arizona</strong>, joining <strong>SPRLAB</strong>. Teaching Assistant for <strong>CSC 425 (Computer Networks)</strong> and <strong>CSC 466 (Computer Security)</strong>.</span>
+    </div>
+
+    <div class="news-item">
+        <span class="news-date">Spring 2025</span>
+        <span class="news-body">Completed undergraduate degree in Computer Science at <strong>LUMS</strong>, Lahore, Pakistan.</span>
+    </div>
+
+    </section>
+
+  </main>
+</div>
+
+<script>
+  // Active nav highlight on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.sidebar-nav a');
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const link = document.querySelector(`.sidebar-nav a[href="#${e.target.id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-25% 0px -65% 0px' });
+
+  sections.forEach(s => io.observe(s));
+
+  // Scroll reveal
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.06 });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+</script>
+</body>
+</html>
