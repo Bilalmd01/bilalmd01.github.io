@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Muhammad Bilal</title>
+  <meta name="description" content="Muhammad Bilal, Ph.D. student at the University of Arizona working on the security of AI agents and program analysis." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Geist:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -241,6 +242,45 @@
 
     .pub-notice strong { color: var(--ink-2); }
 
+    .pub-item {
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .pub-item:first-child { padding-top: 0; }
+    .pub-item:last-child { border-bottom: none; }
+    .pub-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.08rem;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.4;
+      margin-bottom: 0.3rem;
+    }
+    .pub-authors { font-size: 0.86rem; color: var(--ink-3); }
+    .pub-authors strong { color: var(--ink-2); font-weight: 500; }
+    .pub-venue { font-size: 0.86rem; color: var(--ink-3); font-style: italic; }
+    .pub-venue a, .research-item a, .service-list a { color: var(--accent); text-decoration: none; font-style: normal; }
+    .pub-venue a:hover, .research-item a:hover, .service-list a:hover { text-decoration: underline; }
+    .research-item .metrics { margin-top: 0.5rem; color: var(--ink-2); }
+    .research-item .when {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--ink-4);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.35rem;
+    }
+
+    .service-list { list-style: none; }
+    .service-list li {
+      font-size: 0.9rem;
+      color: var(--ink-2);
+      padding: 0.45rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .service-list li:last-child { border-bottom: none; }
+    .service-list strong { color: var(--ink); font-weight: 500; }
+
     /* News */
     .news-item {
       display: grid;
@@ -281,7 +321,9 @@
 
     /* ── RESPONSIVE ──────────────────────────────────── */
     @media (max-width: 700px) {
+      .layout { flex-direction: column; }
       .sidebar {
+        align-content: flex-start;
         position: static;
         width: 100%;
         border-right: none;
@@ -294,7 +336,15 @@
       }
 
       .avatar { width: 60px; height: 60px; margin: 0; }
-      .sidebar-nav, .sidebar-socials, .sidebar-lab { display: none; }
+      .sidebar-nav, .sidebar-lab { display: none; }
+      .sidebar-socials {
+        width: 100%;
+        margin-top: 0;
+        padding-top: 0.75rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.5rem 1.1rem;
+      }
 
       .main { margin-left: 0; padding: 2rem 1.25rem 4rem; }
     }
@@ -316,13 +366,14 @@
     <h1 class="sidebar-name">Muhammad Bilal</h1>
     <p class="sidebar-role">Ph.D. Student in Computer Science</p>
     <p class="sidebar-uni">University of Arizona</p>
-    <p class="sidebar-lab"><a href="https://www.sazzadur.com/students/" target="_blank">SPRLAB</a></p>
+    <p class="sidebar-lab"><a href="https://www.sazzadur.com/students/" target="_blank">SPRLAB</a> &middot; Advisor: <a href="https://www.sazzadur.com/" target="_blank">Sazzadur Rahaman</a></p>
 
     <nav>
       <ul class="sidebar-nav">
         <li><a href="#about" class="active">About</a></li>
-        <!-- <li><a href="#research">Research</a></li> -->
+        <li><a href="#research">Research</a></li>
         <li><a href="#publications">Publications</a></li>
+        <li><a href="#service">Teaching &amp; Service</a></li>
         <li><a href="#news">News</a></li>
       </ul>
     </nav>
@@ -332,13 +383,17 @@
         <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
         mbilal@arizona.edu
       </a>
+      <a class="social-row" href="https://scholar.google.com/citations?user=PfS9gzIAAAAJ&amp;hl=en" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M22 10L12 4 2 10l10 6 10-6z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg>
+        Google Scholar
+      </a>
       <a class="social-row" href="https://www.linkedin.com/in/bilalmd01/" target="_blank">
         <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V9h4v1.5A6 6 0 0 1 16 8z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        Linkedin
+        LinkedIn
       </a>
       <a class="social-row" href="https://github.com/Bilalmd01" target="_blank">
         <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-        Github
+        GitHub
       </a>
     </div>
 
@@ -352,72 +407,96 @@
       <h2 class="section-title">About</h2>
       <div class="about-text">
         <p>
-          I am a second-semester Ph.D. student in Computer Science at the
+          I am a Ph.D. student in Computer Science at the
           <a href="https://www.cs.arizona.edu/" target="_blank">University of Arizona</a>,
-          member of the <a href="https://www.sazzadur.com/students/" target="_blank">SPRLAB</a>.
-          My research sits at the intersection of AI systems, security, and program analysis,
-          with a current focus on identifying and characterizing vulnerabilities in
-          multi-agent AI ecosystems.
+          advised by <a href="https://www.sazzadur.com/" target="_blank">Sazzadur Rahaman</a>
+          in <a href="https://www.sazzadur.com/students/" target="_blank">SPRLAB</a>.
+          My research is on the security of AI agents: I build program-analysis techniques that scale to
+          the skills, tools, and memory that LLM agents download and run, and I study how those
+          ecosystems can be attacked.
         </p>
         <p>
-          I completed my undergraduate degree in Computer Science at
-          <a href="https://lums.edu.pk/" target="_blank">LUMS</a> (Lahore University of Management Sciences)
-          in Pakistan, where I developed a strong foundation in systems and security under the mentorship of Dr. Fareed Zaffar.
+          My current work includes <strong>Asgard</strong>, a static analyzer that finds harmful
+          cross-language data flows in agent skills, and a study of memory poisoning, prompt injection,
+          and sandbox security in AI coding assistants.
         </p>
         <p>
-          Prior to my current research direction, I worked extensively on software debloating, 
-          with a paper currently under review at the
-          <strong>IEEE/ACM International Conference on Automated Software Engineering (ASE)</strong>.
+          Before my Ph.D., I completed my B.S. in Computer Science at
+          <a href="https://lums.edu.pk/" target="_blank">LUMS</a> (Lahore University of Management Sciences),
+          where I worked on software debloating under the mentorship of Dr. Fareed Zaffar.
         </p>
       </div>
     </section>
 
     <!-- RESEARCH -->
-    <!-- <section id="research" class="section reveal">
+    <section id="research" class="section reveal">
       <h2 class="section-title">Research</h2>
       <div class="research-list">
 
         <div class="research-item">
-          <h3>Multi-Agent AI Security</h3>
+          <span class="when">Jan 2026 &ndash; Present</span>
+          <h3>Asgard: Static Detection of Malicious Agentic Skills</h3>
           <p>
-            Investigating security vulnerabilities in AI agent ecosystems, with a focus on
-            the skill installation and execution lifecycle. I develop static analysis pipelines
-            combining LLM-based extraction, CodeQL taint tracking, and cross-language IPC
-            analysis to surface security flaws at design time.
+            AI assistants extend themselves with skills downloaded from public hubs, which mix
+            natural-language instructions with code in many languages. Asgard lowers both into one
+            language-independent IR spanning natural language and 8 programming languages, compacts it,
+            and tracks harmful data flows across files, languages, and skills.
+          </p>
+          <p class="metrics">
+            85% F1 vs. 69% for the strongest static baseline on AsgardBench, our 472-skill ground-truth
+            benchmark. Feeding Asgard's IR (65% fewer tokens) to industry LLM scanners keeps their
+            detections unchanged at ~30% lower cost. We are now scanning all 83,263 public skills on ClawHub.
           </p>
         </div>
 
         <div class="research-item">
-          <h3>Software Debloating</h3>
+          <span class="when">Sep 2026 &ndash; Present</span>
+          <h3>Memory Poisoning &amp; Sandbox Security in AI Coding Agents</h3>
           <p>
-            Reducing software attack surfaces through systematic removal of unused code.
-            My work includes a novel mitigation framework and techniques for safe program
-            specialization, with a focus on real-world applicability.
+            Studying how persistent memory and agent sandboxes in AI coding assistants can be abused,
+            by reverse-engineering agent runtimes and building instrumentation for controlled
+            prompt-injection experiments.
           </p>
         </div>
 
         <div class="research-item">
-          <h3>Static Analysis & Taint Tracking</h3>
+          <span class="when">Feb 2024 &ndash; May 2025</span>
+          <h3>Ground-Truth Evaluation of Code Debloating</h3>
           <p>
-            Developing cross-language taint analysis methodologies for complex, multi-component
-            software systems. A core contribution is treating IPC channels — shared files,
-            environment variables, network endpoints — as first-class taint flow edges.
+            Built manually debloated ground truth for 11 real-world programs and used it to evaluate
+            8 debloaters. Test-driven tools wrongly remove 71&ndash;73% of functionality-critical code on
+            average (up to 94%), while IR-level tools keep 77% of unneeded functions.
+            With collaborators at SRI International, Google, and the University of Arizona.
           </p>
         </div>
 
       </div>
-    </section> -->
+    </section>
 
     <!-- PUBLICATIONS -->
     <section id="publications" class="section reveal">
       <h2 class="section-title">Publications</h2>
-      <div class="pub-notice">
-        <p>
-          Papers are currently in preparation. A manuscript on software debloating is under review
-          at the <strong>IEEE/ACM International Conference on Automated Software Engineering (ASE)</strong>.
-          Work on multi-agent AI security is being written up for submission. Check back for updates.
-        </p>
+      <div class="pub-item">
+        <p class="pub-title">Revisiting Code Debloating with Ground Truth-based Evaluation</p>
+        <p class="pub-authors"><strong>Muhammad Bilal</strong>, Moiz Ali, Mohit Kumar, Fareed Zaffar, Fahad Shaon, Ashish Gehani, Sazzadur Rahaman</p>
+        <p class="pub-venue">arXiv preprint, 2026 &middot; <a href="https://arxiv.org/abs/2604.17717" target="_blank">arXiv:2604.17717</a></p>
       </div>
+      <div class="pub-item">
+        <p class="pub-title">Asgard: Cross-Language Abstraction and Compaction to Enable Agentic Skills Analysis at Scale</p>
+        <p class="pub-authors"><strong>Muhammad Bilal</strong>, Jesse Chen, Talha Abrar, Fahad Shaon, Sazzadur Rahaman</p>
+        <p class="pub-venue">In preparation for USENIX Security 2027</p>
+      </div>
+    </section>
+
+    <!-- TEACHING & SERVICE -->
+    <section id="service" class="section reveal">
+      <h2 class="section-title">Teaching &amp; Service</h2>
+      <ul class="service-list">
+        <li><strong>Reviewer:</strong> ACM Digital Threats: Research and Practice (DTRAP)</li>
+        <li><strong>Sub-reviewer:</strong> EMNLP 2026, IEEE S&amp;P 2027</li>
+        <li><strong>Graduate TA, University of Arizona:</strong> Computer Security (CSC 466), Computer Networks (CSC 425), Database Systems (CSC 460), Comparative Programming Languages (CSC 372)</li>
+        <li><strong>Undergraduate TA, LUMS:</strong> CS100 Computational Problem Solving (Spring 2024, Spring 2025)</li>
+      </ul>
     </section>
 
     <!-- NEWS -->
@@ -425,13 +504,28 @@
     <h2 class="section-title">News</h2>
   
     <div class="news-item">
-        <span class="news-date">Spring 2026</span>
-        <span class="news-body">Teaching Assistant for <strong>CSC 460 (Database Systems)</strong>.</span>
+        <span class="news-date">Fall 2026</span>
+        <span class="news-body">Teaching Assistant for <strong>CSC 466 (Computer Security)</strong> and <strong>CSC 372 (Comparative Programming Languages)</strong>.</span>
     </div>
-    
+
+    <div class="news-item">
+        <span class="news-date">Jul 2026</span>
+        <span class="news-body">Sub-reviewer for <strong>IEEE S&amp;P 2027</strong>.</span>
+    </div>
+
+    <div class="news-item">
+        <span class="news-date">Jun 2026</span>
+        <span class="news-body">Sub-reviewer for <strong>EMNLP 2026</strong>.</span>
+    </div>
+
+    <div class="news-item">
+        <span class="news-date">Apr 2026</span>
+        <span class="news-body">Posted our paper on ground-truth evaluation of code debloating to <a href="https://arxiv.org/abs/2604.17717" target="_blank" style="color:var(--accent);text-decoration:none"><strong>arXiv</strong></a>.</span>
+    </div>
+
     <div class="news-item">
         <span class="news-date">Spring 2026</span>
-        <span class="news-body">Submitted paper on software debloating to <strong>ASE 2026</strong>.</span>
+        <span class="news-body">Teaching Assistant for <strong>CSC 460 (Database Systems)</strong>.</span>
     </div>
 
     <div class="news-item">
